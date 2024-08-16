@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+        }
+        .icon-placeholder {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .stats-section {
+            background-color: #00b7ffd6;
+            color: white;
+            padding: 50px 0;
+        }
+        .stats-section .stat {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .stats-section .stat h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .stats-section .stat p {
+            font-size: 1.2rem;
+        }
+        .pricing-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .pricing-section h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .pricing-section p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+        .pricing-section .line {
+            width: 50px;
+            height: 4px;
+            background-color: #007bff;
+            margin: 20px auto;
+        }
+        .portfolio-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .portfolio-section h1 {
+            margin-bottom: 30px;
+        }
+        .portfolio-section .nav-pills .nav-link {
+            margin: 0 10px;
+            border-radius: 30px;
+        }
+        .portfolio-section .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .portfolio-section .portfolio-item img {
+            width: 100%;
+            transition: transform 0.3s;
+        }
+        .portfolio-section .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+        .portfolio-section .portfolio-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .portfolio-section .portfolio-item:hover .overlay {
+            opacity: 1;
+        }
+        .faq-section {
+            padding: 50px 0;
+        }
+        .faq-section h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .faq-section .faq {
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+        }
+        .faq-section .faq:hover {
+            transform: scale(1.05);
+        }
+        .faq-section .faq h5 {
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        .faq-section .faq h5 i {
+            margin-right: 10px;
+            color: #007bff;
+        }
+        .pricing-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .pricing-section h1 {
+            margin-bottom: 30px;
+        }
+        .pricing-section .price-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .pricing-section .price-item:hover {
+            transform: scale(1.05);
+        }
+        .pricing-section .price-item h5 {
+            font-weight: bold;
+        }
+        .pricing-section .price-item .price {
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+        .contact-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+        .contact-section h1 {
+            margin-bottom: 30px;
+        }
+        .contact-section .contact-item {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .contact-section .contact-item:hover {
+            transform: scale(1.05);
+        }
+        .contact-section .contact-item i {
+            font-size: 2rem;
+            color: #007bff;
+            margin-bottom: 10px;
+        }
+        .footer {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .footer a {
+            color: white;
+            margin: 0 10px;
+        }
+        .footer a:hover {
+            color: #000000;
+        }
+    </style>
+</head>
+<body style="width: 100%;">
+    <div class="container-fluid p-2 sticky-top" style="background-color: rgb(0, 0, 0)">
+        <div class="row">
+            <div class="col-12 col-md-6 text-light h1 mt-3 px-4">
+                Komban Tech
+            </div>
+            <div class="col-12 col-md-6">
+                <ul class="list-inline nav nav-underline justify-content-md-end">
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#">Home</a>
+                    </li>
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#About">About</a>
+                    </li>
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#Resume">Resume</a>
+                    </li>
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#Services">Services</a>
+                    </li>
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#Portfolio">Portfolio</a>
+                    </li>
+                    <li class="list-inline-item mt-3 nav-item">
+                        <a class="text-decoration-none m-2 text-light nav-link" href="#Contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <img class="img-fluid" src="./1 (5).jpg" alt="New York" width="100%" height="auto">
+    <div class="container mt-5 shadow-lg p-3 mb-5 bg-white rounded" id="About">
+        <div class="row">
+            <!-- Profile Image -->
+            <section class="pricing-section w-100">
+                <div class="container text-center">
+                    <h1>About Us</h1>
+                    <div class="line"></div>
+                    <!-- <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis, expedita id aliquam inventore.</p> -->
+                </div>
+            </section>
+            <div class="col-md-2 col-12 mb-3 text-center">
+                <img class="profile-image rounded-circle" src="./1 (3).jpg" alt="Profile Picture" width="200px" height="200px">
+            </div>
+            <!-- Profile Information -->
+            <div class="col-md-4 col-12 mb-3 mt-4" style="padding-left: 100px;">
+                <p><strong>Name:</strong> Raja Balaji A</p>
+                <p><strong>Profile:</strong> Full Stack Developer</p>
+                <p><strong>Email:</strong> kombantech@gmail.com</p>
+                <p><strong>Phone:</strong> 1234567890</p>
+            </div>
+            <!-- Skills Section -->
+            <div class="col-md-6 col-12 mb-3">
+                <h3><b>Skills</b></h3>
+                <div class="mb-2">
+                    <label>HTML</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>CSS</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>JavaScript</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>Bootstrap</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>Python</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>Flask</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label>MySQL</label>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 70%;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">                
+                 <!-- About Section -->
+                 <div class="col-md-6 col-12">
+                    <h3 class="card-title">Profile</h3>
+                    <p class="card-text lh-base" >
+                        As a Full Stack Developer with extensive experience in both front-end and back-end technologies, I excel in creating robust, scalable web applications. My expertise spans a diverse tech stack, including HTML, CSS, JavaScript, and frameworks like React and Angular for the front end. On the server side, I am proficient in languages and frameworks such as Node.js, Python, and Ruby on Rails, with experience in managing databases like MySQL, MongoDB, and PostgreSQL.
+                    </p>
+                </div>
+                    <div class="col-md-6 col-12">
+                        <p class="card-text lh-base">
+                            I am skilled in designing and implementing RESTful APIs, ensuring seamless integration and data flow between client and server. My background includes optimizing application performance, implementing security best practices, and using version control systems like Git. I thrive in collaborative environments, working closely with cross-functional teams to deliver high-quality solutions that meet business objectives and user needs.
+                            With a commitment to continuous learning, I stay current with emerging technologies and industry trends, applying innovative techniques to solve complex challenges and enhance user experiences. My goal is to leverage my full stack capabilities to build cutting-edge applications and contribute to impactful projects.
+                        </p>
+                    </div>
+                </div>
+                </div>
+                </div>
+            
+    <div class="container mt-5" style="min-height: 800px;" id="Resume">
+        <div class="row">
+            <section class="pricing-section w-100">
+                <div class="container text-center">
+                    <h1>Resume</h1>
+                    <div class="line"></div>
+                    <p>Innovative Full Stack Developer with 1 years of experience in building scalable web applications, seeking to leverage expertise in front-end and back-end technologies to drive impactful solutions and contribute to a dynamic team.</p>
+                </div>
+            </section>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="section-heading">
+                    <h2><b>Summary</b></h2>
+                </div>
+                <div class="section-content">
+                    <h3>Raja Balaji A</h3>
+                    <p>Dedicated Full Stack Developer with 1 years of experience in creating dynamic web applications, seeking to leverage expertise in both front-end and back-end technologies to drive innovative solutions and enhance user experiences. Committed to delivering high-quality code and collaborating effectively with cross-functional teams to achieve project goals.!</p>
+                    <ul>
+                        <li>Kutteripattu</li>
+                        <li>1234567890</li>
+                        <li>kombantech@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-4">
+                <div class="section-heading">
+                    <h2><b>Education</b></h2>
+                </div>
+                <div class="section-content">
+                    <h3>Master of Computer Applications</h3>
+                    <p>2023-2025</p>
+                    <p>Takshashila University Ongur,Tindivanam</p>
+                    <br>
+                    <h3>Bachelor of Computer Applications</h3>
+                    <p>2020-2023</p>
+                    <p>SSBS Tamil Arts Science College Mailam Affiliated Thiruvalluvar University Vellore</p>
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-6 mb-4">
+                <div class="section-heading">
+                    <h2><b>Professional Experience</b></h2>
+                </div>
+                <div class="section-content">
+                    <h3>Front End Developer</h3>
+                    <p>2024 - Present</p>
+                    <p>Chennai, Tamil Nadu</p>
+                    <ul>
+                        <li>As a front-end developer, I craft engaging user interfaces using HTML, CSS, and JavaScript. I ensure responsive design across devices and collaborate with designers to bring concepts to life.</li>
+                        <li>My experience includes optimizing performance and troubleshooting cross-browser issues. I stay current with industry trends and emerging technologies to deliver cutting-edge web experiences.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 mb-5">
+                <div class="section-heading">
+                    <h3>Web Developer</h3>
+                </div>
+                <div class="section-content">
+                    <p>2020 - 2022</p>
+                    <p>Chennai, Tamil Nadu</p>
+                    <ul>
+                        <li>As a web developer, I build and maintain dynamic websites using a variety of technologies including HTML, CSS, JavaScript, and server-side languages. I focus on creating responsive, user-friendly designs while ensuring seamless functionality and performance.</li>
+                        <li>My experience includes integrating APIs, optimizing web applications, and troubleshooting technical issues.</li>
+                        <li>I stay updated with industry advancements to implement best practices and innovative solutions.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5" id="Services">
+        <section class="pricing-section text-center">
+            <h1>Services</h1>
+            <div class="line"></div>
+            <p>Full Stack Developer Services: Offering end-to-end solutions</p>
+        </section>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-danger text-white">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-laptop-code" style="font-size:60px;"></i>
+                        <h5 class="card-title">Custom Web Application Development</h5>
+                        <p class="card-text">Designing and developing tailored web applications using modern front-end technologies (HTML, CSS, JavaScript, React, Angular) and powerful back-end frameworks (Node.js, Python, Ruby on Rails)</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-success text-white">
+                    <div class="card-body text-center">
+                        <i class="fa-brands fa-connectdevelop" style="font-size:60px;"></i>
+                        <h5 class="card-title">API Integration and Development</h5>
+                        <p class="card-text">Designing and building custom APIs to meet specific business requirements, ensuring seamless integration and efficient data exchange between different systems.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-info text-white">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-web-awesome" style="font-size:60px;"></i>
+                        <h5 class="card-title">Responsive Design and User Experience</h5>
+                        <p class="card-text">Crafting responsive and user-centric designs that ensure a consistent and engaging experience across all devices and screen sizes.Implementing accessibility best practices.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-warning text-dark">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-database" style="font-size:60px;"></i>
+                        <h5 class="card-title">Database Design and Management</h5>
+                        <p class="card-text">Building and managing databases with MySQL, MongoDB, and PostgreSQL to handle complex data structures and ensure data integrity and performance.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-primary text-white">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-bolt" style="font-size:60px;"></i>
+                        <h5 class="card-title">Performance Optimization</h5>
+                        <p class="card-text">Enhancing application performance through code optimization, caching strategies, and efficient resource management to deliver fast and reliable user experiences.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card bg-secondary text-white">
+                    <div class="card-body text-center">
+                        <i class="fa-solid fa-shield" style="font-size:60px;"></i>
+                        <h5 class="card-title">Security Best Practices</h5>
+                        <p class="card-text">Implementing robust security measures to protect applications from vulnerabilities and ensure the safety of user data like encryption, secure authentication.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="stats-section mt-5">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-3 stat">
+                    <h3>232</h3>
+                    <p>Clients</p>
+                </div>
+                <div class="col-12 col-md-3 stat">
+                    <h3>521</h3>
+                    <p>Projects</p>
+                </div>
+                <div class="col-12 col-md-3 stat">
+                    <h3>1453</h3>
+                    <p>Hours of Support</p>
+                </div>
+                <div class="col-12 col-md-3 stat">
+                    <h3>32</h3>
+                    <p>Awards</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" >
+        <section class="portfolio-section pricing-section text-center">
+            <h1 id="Portfolio">Portfolio</h1>
+            <div class="line"></div>
+            <p>Showcasing expertise in building and maintaining dynamic, scalable web applications with seamless front-end and back-end integration.</p>
+
+            <ul class="nav nav-pills justify-content-center mb-4">
+                <li class="nav-item">
+                    <a class="nav-link active text-dark btn btn-primary" href="#">ALL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark btn btn-primary" href="#App">APP</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark btn btn-primary" href="#Product">PRODUCT</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark btn btn-primary" href="#Branding">BRANDING</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark btn btn-primary" href="#Books">BOOKS</a>
+                </li>
+            </ul>
+
+            <div class="row">
+                <!-- Repeat this div block for each portfolio item -->
+                <div class="col-md-4 portfolio-item" id="Books">
+                    <img src="./books (1).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Books">
+                    <img src="./books (2).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Books">
+                    <img src="./books (3).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Branding">
+                    <img src="./brand (1).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Branding">
+                    <img src="./brand (2).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Branding">
+                    <img src="./brand (3).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="App">
+                    <img src="./app (1).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="App">
+                    <img src="./app (2).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="App">
+                    <img src="./app (3).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Product">
+                    <img src="./product (1).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Product">
+                    <img src="./product (2).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <div class="col-md-4 portfolio-item" id="Product">
+                    <img src="./product (3).jpg" alt="Portfolio Item">
+                    <div class="overlay">
+                        <i class="fas fa-search-plus fa-2x"></i>
+                    </div>
+                </div>
+                <!-- Add more items here... -->
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <section class="portfolio-section">
+            <section class="pricing-section">
+                <div class="container">
+                    <h1>Pricing</h1>
+                    <div class="line"></div>
+                    <p>Detailed pricing for IT courses, including tuition, materials, and any additional costs, tailored to various learning paths and levels.</p>
+                    <div class="row">
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Web Development</h5>
+                            <p class="price">$120.00</p>
+                        </div>
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Front End Development</h5>
+                            <p class="price">$160.00</p>
+                        </div>
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Back End Development</h5>
+                            <p class="price">$300.00</p>
+                        </div>
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Full Stack Web Development</h5>
+                            <p class="price">$500.00</p>
+                        </div>
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Data Analyst</h5>
+                            <p class="price">$200.00</p>
+                        </div>
+                        <div class="col-12 col-md-4 price-item">
+                            <h5>Software Testing</h5>
+                            <p class="price">$200.00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <div class="container">
+        <section class="faq-section">
+            <div class="container">
+                <h1>Frequently Asked Questions</h1>
+                <div class="faq">
+                    <h5><i class="fas fa-question-circle"></i> 1. What is a Full Stack Developer?</h5>
+                    <p>A Full Stack Developer is a software engineer proficient in both front-end and back-end development, capable of building and maintaining complete web applications from the user interface to the server-side logic and database management.</p>
+                </div>
+                <div class="faq">
+                    <h5><i class="fas fa-question-circle"></i> 2. What technologies should I learn to become a Full Stack Developer?</h5>
+                    <p>Key technologies include HTML, CSS, JavaScript for front-end development; frameworks like React or Angular; and back-end technologies such as Node.js, Python, or Ruby on Rails. Familiarity with databases (e.g., MySQL, MongoDB) and version control systems (e.g., Git) is also important.</p>
+                </div>
+                <div class="faq">
+                    <h5><i class="fas fa-question-circle"></i> 3. How long does it take to become proficient as a Full Stack Developer?</h5>
+                    <p>Becoming proficient typically takes 6 to 12 months of intensive study and practice, depending on your prior experience and the depth of learning. Hands-on projects and real-world experience are crucial for skill development.</p>
+                </div>
+                <div class="faq">
+                    <h5><i class="fas fa-question-circle"></i> 4. What are the benefits of hiring a Full Stack Developer?</h5>
+                    <p>Hiring a Full Stack Developer provides the advantage of having a versatile professional who can handle both front-end and back-end tasks, streamline development processes, and reduce the need for multiple specialists, leading to more cohesive and efficient project execution.</p>
+                </div>
+                <div class="faq">
+                    <h5><i class="fas fa-question-circle"></i> 5. How do I choose the right Full Stack Developer for my project?</h5>
+                    <p>Evaluate candidates based on their technical skills, experience with relevant technologies, problem-solving abilities, and portfolio of past projects. It's also important to assess their communication skills and ability to work collaboratively within a team.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container" id="Contact">
+        <section class="contact-section">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <div class="row">
+                    <div class="col-12 col-md-4 contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h5>Address</h5>
+                        <p>Kutteripattu</p>
+                    </div>
+                    <div class="col-12 col-md-4 contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <h5>Call Us</h5>
+                        <p>1234567890</p>
+                    </div>
+                    <div class="col-12 col-md-4 contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h5>Email Us</h5>
+                        <p>kombantech@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container mb-5">
+        <div class="container mb-2 card mt-2">
+            <div class="row p-5">
+                <div class="col-12 col-ld-6">
+                    <h2>Contact Form</h2>
+                <div class="form bg-white">
+                    <div class="form-group my-2">
+                        <label>Email</label>
+                        <input type="email" name="" id="" class="form-control my-2">
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Name</label>
+                        <input type="text" name="" class="form-control my-2" id="">
+                    </div>
+                    <div class="form-group my-2">
+                        <label>Message</label>
+                        <textarea name="" class="form-control my-2" id=""></textarea>
+                    </div>
+                    <button type="button" class="btn btn-primary my-2">Send Message</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            <p>© 2024 Komban Tech. All Rights Reserved</p>
+            <div>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>                
+</body>
+</html>
+
+
+
